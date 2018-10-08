@@ -53,7 +53,6 @@ public enum Todofuken implements Code<Integer>{
 	    KAGOSHIMA   (46, "鹿児島", "県"),
 	    OKINAWA     (47, "沖縄", "県");
 
-	@Getter
 	private Integer code;
 
 	@Getter
@@ -70,6 +69,12 @@ public enum Todofuken implements Code<Integer>{
 	public String fullText(){
 		return this.text + this.suffix;
 	}
+
+	@Override
+	public Integer getCode(){
+		return this.code;
+	}
+	
 	/**
 	 * 都道府県名が同じであるか
 	 * 県がついているときとついていないときの両方を考慮する
