@@ -23,7 +23,7 @@ public class StringEmptyCheckerTest {
 
 	@Parameters(name="{0} {1}")
 	public static Collection<String[]> params() {
-		String[][] outputs = { { "a", "b" }, { "b", "a" } };
+		String[][] outputs = { { "a", "b"}, { "b", "a" } };
 		return Arrays.asList(outputs);
 	}
 
@@ -33,6 +33,15 @@ public class StringEmptyCheckerTest {
 		boolean actual = strEmp.containEmpty(a, b);
 		
 		assertEquals(false, actual);
+
+	}
+
+	@Test
+	public void testContainEmptyBad() {
+		StringEmptyChecker strEmp = new StringEmptyChecker();
+		boolean actual = strEmp.containEmpty(a, b);
+		
+		assertEquals(true, actual);
 
 	}
 
