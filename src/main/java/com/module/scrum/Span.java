@@ -2,6 +2,12 @@ package com.module.scrum;
 
 import java.util.Date;
 
+/**
+ * 開始と終了日
+ * 期間を表す
+ * @author yoshinari
+ *
+ */
 public class Span {
 	
 	private Date startDate;
