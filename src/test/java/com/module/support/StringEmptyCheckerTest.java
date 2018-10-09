@@ -13,35 +13,36 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public class StringEmptyCheckerTest {
 
-	private String a;
-	private String b;
+	private Fixture fixture;
 
-	public StringEmptyCheckerTest(String a, String b) {
-		this.a = a;
-		this.b = b;
+	public StringEmptyCheckerTest(Fixture fixture) {
+		this.fixture = fixture;
 	}
 
-	@Parameters(name="{0} {1}")
-	public static Collection<String[]> params() {
-		String[][] outputs = { { "a", "b"}, { "b", "a" } };
+	@Parameters
+	public static Collection<Fixture> params() {
+		Fixture[] outputs = { new Fixture("a", "b", false), new Fixture("a", "", true), new Fixture("a", null, true) };
 		return Arrays.asList(outputs);
 	}
 
 	@Test
 	public void testContainEmpty() {
 		StringEmptyChecker strEmp = new StringEmptyChecker();
-		boolean actual = strEmp.containEmpty(a, b);
-		
-		assertEquals(false, actual);
-
+		boolean actual = strEmp.containEmpty(fixture.a, fixture.b);
+		assertEquals(fixture.expected, actual);
 	}
 
-	@Test
-	public void testContainEmptyBad() {
-		StringEmptyChecker strEmp = new StringEmptyChecker();
-		boolean actual = strEmp.containEmpty(a, b);
-		
-		assertEquals(true, actual);
+	static class Fixture {
+		String a;
+		String b;
+		boolean expected;
+
+		public Fixture(String a, String b, boolean expected) {
+			super();
+			this.a = a;
+			this.b = b;
+			this.expected = expected;
+		}
 
 	}
 
