@@ -3,6 +3,8 @@ package com.module.person;
 import java.util.Optional;
 
 import lombok.EqualsAndHashCode;
+
+
 @EqualsAndHashCode
 public class Name {
 
@@ -17,22 +19,19 @@ public class Name {
 	private String mei;
 
 	public Name(String sei, String mei) {
-		super();
 		this.sei = Optional.ofNullable(sei).orElse("").trim();
 		this.mei = Optional.ofNullable(mei).orElse("").trim();
 	}
 
 	@Override
 	public String toString() {
-		return this.name(" ");
+		return this.fullName(" ");
 	}
-	
-	public String name(String delimiter) {
+
+	public String fullName(String delimiter) {
 		StringBuilder s = new StringBuilder();
-		s.append(this.sei).
-		append(Optional.ofNullable(delimiter).orElse("")).
-		append(this.mei);
+		s.append(this.sei).append(Optional.ofNullable(delimiter).orElse("")).append(this.mei);
 		return s.toString().trim();
 	}
-	
+
 }
