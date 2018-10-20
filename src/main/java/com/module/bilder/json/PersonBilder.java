@@ -16,17 +16,17 @@ public class PersonBilder extends AbstractJsonBuilder<Person> {
 		return this.person;
 	}
 	
-	public PersonBilder person(String name, String jyusyo, Integer age, IStrongBuilder strongBuilder){
+	public PersonBilder person(String name, String jyusyo, Integer age, IStrongBilder strongBuilder){
 		person.setName(name);
 		person.setAge(age);
 		person.setStlonger(strongBuilder.strong());
 		return this;
 	}
 	
-	interface IStrongBuilder {
+	interface IStrongBilder {
 		String strong();
 	}
-	public class StrongBilder implements IStrongBuilder {
+	public class StrongBilder implements IStrongBilder {
 
 		@Override
 		public String strong() {

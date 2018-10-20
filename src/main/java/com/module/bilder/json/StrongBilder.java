@@ -1,8 +1,8 @@
 package com.module.bilder.json;
 
-import com.module.bilder.json.PersonBilder.IStrongBuilder;
+import com.module.bilder.json.PersonBilder.IStrongBilder;
 
-class StrongBilder implements IStrongBuilder {
+class StrongBilder implements IStrongBilder {
 
 	@Override
 	public String strong() {
